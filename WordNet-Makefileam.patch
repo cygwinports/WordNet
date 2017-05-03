@@ -1,0 +1,20 @@
+--- origsrc/WordNet-3.0/doc/Makefile.am	2006-12-15 00:00:59.000000000 +0100
++++ src/WordNet-3.0/doc/Makefile.am	2011-11-07 22:28:21.906250000 +0100
+@@ -1 +1 @@
+-SUBDIRS = html man pdf ps
++SUBDIRS = man
+--- origsrc/WordNet-3.0/doc/man/Makefile.am	2006-12-14 23:59:49.000000000 +0100
++++ src/WordNet-3.0/doc/man/Makefile.am	2011-11-07 22:28:21.968750000 +0100
+@@ -1 +1 @@
+-man_MANS = binsrch.3 cntlist.5 grind.1 lexnames.5 morph.3 morphy.7 senseidx.5 uniqbeg.7 wn.1 wnb.1 wndb.5 wngloss.7 wngroups.7 wninput.5 wnintro.1 wnintro.3 wnintro.5 wnintro.7 wnlicens.7 wnpkgs.7 wnsearch.3 wnstats.7 wnutil.3
++man_MANS = binsrch.3 cntlist.5 grind.1 lexnames.5 morph.3 morphy.7 senseidx.5 uniqbeg.7 wn.1 wnb.1 wndb.5 wngloss.7 wngroups.7 wninput.5 wnintro.1 wnintro.3 wnintro.5 wnintro.7 wnlicens.7 wnpkgs.7 wnsearch.3 wnstats.7 wnutil.3 wishwn.1
+--- origsrc/WordNet-3.0/src/Makefile.am	2013-04-29 08:33:18.520250700 +0200
++++ src/WordNet-3.0/src/Makefile.am	2013-04-29 08:42:40.654402900 +0200
+@@ -7,6 +7,6 @@ wishwn_LDADD = $(LDADD) $(TK_LIB_SPEC) $
+ wn_SOURCES = wn.c
+ wn_CPPFLAGS = $(INCLUDES)
+ wn_LDADD = $(LDADD)
+-LDADD = -L$(top_srcdir)/lib -lWN
++LDADD = -L$(top_builddir)/lib -lWN
+ INCLUDES = -I$(top_srcdir) -I$(top_srcdir)/include $(TCL_INCLUDE_SPEC) $(TK_XINCLUDES) -I$(TK_PREFIX)/include
+ 

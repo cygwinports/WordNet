@@ -1,0 +1,38 @@
+--- origsrc/WordNet-3.0/acinclude.m4	2006-11-14 22:15:30.000000000 +0100
++++ src/WordNet-3.0/acinclude.m4	2011-11-07 22:28:21.906250000 +0100
+@@ -17,7 +17,7 @@
+ #				the tclConfig.sh file
+ #------------------------------------------------------------------------
+ 
+-AC_DEFUN(SC_PATH_TCLCONFIG, [
++AC_DEFUN([SC_PATH_TCLCONFIG], [
+     #
+     # Ok, lets find the tcl configuration
+     # First, look for one uninstalled.
+@@ -122,7 +122,7 @@ AC_DEFUN(SC_PATH_TCLCONFIG, [
+ #				the tkConfig.sh file
+ #------------------------------------------------------------------------
+ 
+-AC_DEFUN(SC_PATH_TKCONFIG, [
++AC_DEFUN([SC_PATH_TKCONFIG], [
+     #
+     # Ok, lets find the tk configuration
+     # First, look for one uninstalled.
+@@ -226,7 +226,7 @@ AC_DEFUN(SC_PATH_TKCONFIG, [
+ #
+ #------------------------------------------------------------------------
+ 
+-AC_DEFUN(SC_LOAD_TCLCONFIG, [
++AC_DEFUN([SC_LOAD_TCLCONFIG], [
+     AC_MSG_CHECKING([for existence of $TCL_BIN_DIR/tclConfig.sh])
+ 
+     if test -f "$TCL_BIN_DIR/tclConfig.sh" ; then
+@@ -294,7 +294,7 @@ AC_DEFUN(SC_LOAD_TCLCONFIG, [
+ #		TK_BIN_DIR
+ #------------------------------------------------------------------------
+ 
+-AC_DEFUN(SC_LOAD_TKCONFIG, [
++AC_DEFUN([SC_LOAD_TKCONFIG], [
+     AC_MSG_CHECKING([for existence of $TK_BIN_DIR/tkConfig.sh])
+ 
+     if test -f "$TK_BIN_DIR/tkConfig.sh" ; then

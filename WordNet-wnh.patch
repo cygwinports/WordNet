@@ -1,0 +1,11 @@
+--- origsrc/WordNet-3.0/include/wn.h	2007-01-03 22:51:35.000000000 +0100
++++ src/WordNet-3.0/include/wn.h	2011-11-07 22:28:21.984375000 +0100
+@@ -29,7 +29,7 @@
+ #else
+ #define DICTDIR         "/dict"
+ #ifndef DEFAULTPATH
+-#define DEFAULTPATH	"/usr/local/WordNet-3.0/dict"
++#define DEFAULTPATH	"/usr/lib/wnres/dict"
+ #endif
+ #define DATAFILE	"%s/data.%s"
+ #define INDEXFILE	"%s/index.%s"

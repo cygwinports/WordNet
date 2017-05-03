@@ -1,0 +1,14 @@
+--- origsrc/WordNet-3.0/configure.ac	2011-11-07 22:28:17.515625000 +0100
++++ src/WordNet-3.0/configure.ac	2011-11-07 22:28:21.906250000 +0100
+@@ -41,9 +41,9 @@ if test "x$ac_prefix" = "xNONE"; then
+ fi
+ AC_SUBST(ac_prefix)
+ AH_TEMPLATE([DEFAULTPATH],[The default search path for WordNet data files])
+-AC_DEFINE_UNQUOTED(DEFAULTPATH, ["$ac_prefix/dict"], [Default installation prefix.])
++AC_DEFINE_UNQUOTED(DEFAULTPATH, ["/usr/lib/wnres/dict"], [Default installation prefix.])
+ 
+-#AC_DEFINE_UNQUOTED(DEFAULTPATH,"${prefix}/dict")
++#AC_DEFINE_UNQUOTED(DEFAULTPATH,"${prefix}/lib/wnres/dict")
+ 
+ # This doesn't do anything
+ AC_CONFIG_COMMANDS([default])

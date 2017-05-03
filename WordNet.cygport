@@ -1,0 +1,53 @@
+NAME="WordNet"
+VERSION="3.0"
+RELEASE="1"
+CATEGORY="Tcl Text Utils"
+SUMMARY="A lexical database for the English language"
+DESCRIPTION="WordNet is an online lexical reference system. Word forms in WordNet are
+represented in their familiar orthography; word meanings are represented by synonym
+sets (synsets) - lists of synonymous word forms that are interchangeable in some
+context. Two kinds of relations are recognized: lexical and semantic. Lexical
+relations hold between word forms; semantic relations hold between word meanings."
+
+HOMEPAGE="http://wordnet.princeton.edu/"
+SRC_URI="http://wordnetcode.princeton.edu/${PV}/${P}.tar.bz2"
+PATCH_URI="
+	wordnet-3.0-error_message.patch
+	wordnet-3.0-CVE-2008-2149.patch
+	wordnet-3.0-CVE-2008-3908.patch
+	wordnet-3.0-src_stubs_c.patch
+	wordnet-3.0-wishwn_manpage.patch
+	wordnet-3.0-use_system_tk_headers.patch
+	wordnet-3.0-fix_man.patch
+	wordnet-3.0-libtool.patch
+	WordNet-acinclude.patch
+	WordNet-configureac.patch
+	WordNet-Makefileam.patch
+	WordNet-wnb.patch
+	WordNet-wnh.patch
+"
+
+
+DIFF_EXCLUDES="Makefile.in aclocal.m4 config.h.in configure config.guess config.sub ltmain.sh Makefile"
+
+CYGCONF_ARGS="
+	--with-tcl=/usr/lib
+	--with-tk=/usr/lib
+"
+
+src_compile() {
+	cd ${S}
+        cygautoreconf
+	lndirs
+	cp /usr/share/cygport/config.guess ${S}
+	cd ${B}
+	cygconf
+	cygmake
+}
+
+src_install() {
+	cd ${B}
+	cyginstall dictdir=/usr/lib/wnres/dict
+}
+
+DOCS="INSTALL"
