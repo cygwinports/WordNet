@@ -1,6 +1,6 @@
 NAME="WordNet"
-VERSION="3.0"
-RELEASE="1"
+VERSION=3.0
+RELEASE=4
 CATEGORY="Tcl Text Utils"
 SUMMARY="A lexical database for the English language"
 DESCRIPTION="WordNet is an online lexical reference system. Word forms in WordNet are
@@ -8,7 +8,6 @@ represented in their familiar orthography; word meanings are represented by syno
 sets (synsets) - lists of synonymous word forms that are interchangeable in some
 context. Two kinds of relations are recognized: lexical and semantic. Lexical
 relations hold between word forms; semantic relations hold between word meanings."
-
 HOMEPAGE="http://wordnet.princeton.edu/"
 SRC_URI="http://wordnetcode.princeton.edu/${PV}/${P}.tar.bz2"
 PATCH_URI="
@@ -27,9 +26,34 @@ PATCH_URI="
 	WordNet-wnh.patch
 "
 
+PKG_NAMES="${NAME} ${NAME}-browser ${NAME}-devel"
+WordNet_CONTENTS="
+	usr/bin/cygWN-3.dll
+	usr/bin/wn.exe
+	usr/lib/wnres/
+	usr/share/doc/${NAME}/
+	usr/share/man/man1/grind.1*
+	usr/share/man/man1/wn.1*
+	usr/share/man/man1/wnintro.1*
+	usr/share/man/man5/*
+	usr/share/man/man7/*
+"
+WordNet_browser_CONTENTS="
+	usr/bin/wishwn.exe
+	usr/bin/wnb
+	usr/share/man/man1/wishwn.1*
+	usr/share/man/man1/wnb.1*
+"
+WordNet_devel_CONTENTS="
+	usr/include/wn.h
+	usr/lib/libWN.dll.a
+	usr/share/man/man3/*
+"
 
 DIFF_EXCLUDES="Makefile.in aclocal.m4 config.h.in configure config.guess config.sub ltmain.sh Makefile"
 
+# for Tcl 8.6
+CFLAGS+=" -DUSE_INTERP_RESULT"
 CYGCONF_ARGS="
 	--with-tcl=/usr/lib
 	--with-tk=/usr/lib
